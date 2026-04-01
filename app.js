@@ -108,6 +108,8 @@ function createNoteEl(note) {
   div.dataset.id = note.id;
   div.dataset.uid = note.uid || '';
 
+  const isMine = note.uid === getSessionId();
+
   div.innerHTML = `
     <div class="note-header">
       <span class="note-author-label">
@@ -115,25 +117,91 @@ function createNoteEl(note) {
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
           <circle cx="12" cy="7" r="4"/>
         </svg>
-        ${escapeHtml(note.author)}
+        ${escapeHtml(note.author)}${isMine ? ' <span class="note-mine-tag">you</span>' : ''}
       </span>
       <span class="note-timestamp">${escapeHtml(note.time)}</span>
     </div>
     <div class="note-body">
       <p class="note-text">${escapeHtml(note.text)}</p>
+      ${isMine ? `<textarea class="note-edit-input" maxlength="200" style="display:none">${escapeHtml(note.text)}</textarea>
+      <div class="note-edit-actions" style="display:none">
+        <button class="note-save-btn">Save</button>
+        <button class="note-cancel-btn">Cancel</button>
+      </div>` : ''}
     </div>
-    <button class="note-delete" title="Remove note" aria-label="Delete this note">×</button>
+    ${isMine ? `<div class="note-action-btns">
+      <button class="note-edit-btn" title="Edit note" aria-label="Edit this note">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      </button>
+      <button class="note-delete" title="Remove note" aria-label="Delete this note">×</button>
+    </div>` : ''}
   `;
 
-  div.querySelector('.note-delete').addEventListener('click', (e) => {
-    e.stopPropagation();
-    deleteNote(note.id, div);
-  });
+  if (isMine) {
+    const editBtn = div.querySelector('.note-edit-btn');
+    const deleteBtn = div.querySelector('.note-delete');
+    const textEl = div.querySelector('.note-text');
+    const textarea = div.querySelector('.note-edit-input');
+    const editActions = div.querySelector('.note-edit-actions');
+    const saveBtn = div.querySelector('.note-save-btn');
+    const cancelBtn = div.querySelector('.note-cancel-btn');
+
+    deleteBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      deleteNote(note.id, div);
+    });
+
+    editBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      // Enter edit mode
+      textEl.style.display = 'none';
+      textarea.style.display = 'block';
+      editActions.style.display = 'flex';
+      editBtn.style.display = 'none';
+      div.setAttribute('draggable', 'false');
+      textarea.focus();
+      textarea.setSelectionRange(textarea.value.length, textarea.value.length);
+    });
+
+    cancelBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      exitEditMode(div, textEl, textarea, editActions, editBtn);
+    });
+
+    saveBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const newText = textarea.value.trim();
+      if (!newText) return;
+      if (newText !== note.text) {
+        notesRef.child(note.id).update({ text: newText, edited: true });
+        showToast('Note updated');
+      }
+      exitEditMode(div, textEl, textarea, editActions, editBtn);
+    });
+
+    textarea.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        saveBtn.click();
+      }
+      if (e.key === 'Escape') {
+        cancelBtn.click();
+      }
+    });
+  }
 
   div.addEventListener('dragstart', onDragStart);
   div.addEventListener('dragend', onDragEnd);
 
   return div;
+}
+
+function exitEditMode(div, textEl, textarea, editActions, editBtn) {
+  textEl.style.display = 'block';
+  textarea.style.display = 'none';
+  editActions.style.display = 'none';
+  editBtn.style.display = 'flex';
+  div.setAttribute('draggable', 'true');
 }
 
 // ── Firebase: write a new note ────────────────
@@ -180,6 +248,22 @@ function listenToNotes() {
     const el = createNoteEl(note);
     zone.appendChild(el);
     updateCounts();
+  });
+
+  // child_changed fires when a note is edited
+  notesRef.on('child_changed', (snapshot) => {
+    const note = snapshot.val();
+    if (!note) return;
+    const textEl = document.querySelector(`.sticky-note[data-id="${note.id}"] .note-text`);
+    const textarea = document.querySelector(`.sticky-note[data-id="${note.id}"] .note-edit-input`);
+    if (textEl) {
+      textEl.textContent = note.text;
+      if (note.edited) {
+        const ts = document.querySelector(`.sticky-note[data-id="${note.id}"] .note-timestamp`);
+        if (ts && !ts.textContent.includes('edited')) ts.textContent += ' · edited';
+      }
+    }
+    if (textarea) textarea.value = note.text;
   });
 
   // child_removed fires when a note is deleted
@@ -335,23 +419,12 @@ function bindExport() {
   });
 }
 
-// ── Clear all notes (removes from Firebase) ───
-function bindClear() {
-  document.getElementById('clear-all-btn')?.addEventListener('click', () => {
-    const count = document.querySelectorAll('.sticky-note').length;
-    if (count === 0) { showToast('No notes to clear'); return; }
-    if (!confirm(`Remove all ${count} note${count !== 1 ? 's' : ''} for everyone? This cannot be undone.`)) return;
-    notesRef.remove();
-    showToast('All notes cleared');
-  });
-}
 
 // ── Init ──────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initDropZones();
   bindInputs();
   bindExport();
-  bindClear();
   initConnectionStatus();
   listenToNotes();
 });
