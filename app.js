@@ -40,7 +40,7 @@ const STATE = {
   noteCounter: 0,
 };
 
-const THEMES = ['transparency', 'bias', 'ethics', 'privacy', 'governance'];
+const THEMES = ['transparency', 'dataprivacy', 'academicintegrity', 'humanvalidation', 'ethics'];
 
 // ── Utilities ─────────────────────────────────
 function saveState() {
@@ -377,12 +377,11 @@ function restoreNotes() {
 
 // ── Pre-seed demo notes ───────────────────────
 const DEMO_NOTES = [
-  { theme: 'transparency', text: 'Organizations should publish model cards detailing training data sources and known limitations.' },
-  { theme: 'transparency', text: 'AI disclosures must be readable by non-technical stakeholders — not buried in fine print.' },
-  { theme: 'bias', text: 'Participatory design with affected communities should be required before deploying AI in public services.' },
-  { theme: 'ethics', text: 'Indigenous data sovereignty principles (CARE + FAIR) should be integrated into the ethics framework.' },
-  { theme: 'privacy', text: 'Tribal nations need opt-out rights for any AI trained on community-generated or treaty-related data.' },
-  { theme: 'governance', text: 'Enforcement must go beyond voluntary compliance — include third-party auditing with real consequences.' },
+  { theme: 'transparency', text: 'Example: These guidelines are useful but need clearer definitions of what "transparency" means in practice for different stakeholders.' },
+  { theme: 'dataprivacy', text: 'Example: Missing guidance on how to handle Indigenous or tribal community data — CARE principles should be referenced.' },
+  { theme: 'academicintegrity', text: 'Example: The guidelines could be more actionable if they included specific citation formats for AI-generated content.' },
+  { theme: 'humanvalidation', text: 'Example: Hard to apply when timelines are tight — guidelines should address resource constraints.' },
+  { theme: 'ethics', text: 'Example: Challenging to apply when institutional incentives conflict with ethical AI use.' },
 ];
 
 function seedDemoNotes() {

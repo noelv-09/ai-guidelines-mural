@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Guidelines — Small Group Feedback Board</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -24,7 +22,7 @@
         </svg>
         <div class="logo-text">
           <span class="logo-title">AI Guidelines</span>
-          <span class="logo-sub">Feedback Mural Board</span>
+          <span class="logo-sub">Small Group Feedback Board</span>
         </div>
       </div>
       <div class="header-actions">
@@ -35,7 +33,7 @@
         <button class="btn-icon" data-theme-toggle aria-label="Switch to dark mode" title="Toggle dark mode">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-        <button class="btn-secondary" id="clear-all-btn" title="Clear all added notes">Clear My Notes</button>
+        <button class="btn-secondary" id="clear-all-btn">Clear My Notes</button>
         <button class="btn-primary" id="export-btn">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Export Notes
@@ -48,7 +46,7 @@
       <div class="intro-inner">
         <div class="intro-text">
           <h1>Draft AI Guidelines — Small Group Feedback</h1>
-          <p>Five key themes for discussion. Add your sticky notes under any theme. Drag notes to reorder. Click a discussion prompt to expand it.</p>
+          <p>After reading through the 5 Key Themes in the draft AI Guidelines document, use the guiding questions in each column to discuss with your small group. Add sticky notes to capture your responses.</p>
         </div>
         <div class="intro-meta">
           <div class="meta-pill">
@@ -59,7 +57,7 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
             5 Themes
           </div>
-          <div class="meta-pill" id="note-count-pill">
+          <div class="meta-pill">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
             <span id="note-count">0</span> Notes Added
           </div>
@@ -73,10 +71,26 @@
     <div class="legend-inner">
       <span class="legend-label">Jump to:</span>
       <a href="#theme-transparency" class="legend-chip chip-transparency">Transparency</a>
-      <a href="#theme-bias" class="legend-chip chip-bias">Bias</a>
+      <a href="#theme-dataprivacy" class="legend-chip chip-dataprivacy">Data Privacy</a>
+      <a href="#theme-academicintegrity" class="legend-chip chip-academicintegrity">Academic Integrity</a>
+      <a href="#theme-humanvalidation" class="legend-chip chip-humanvalidation">Human Validation</a>
       <a href="#theme-ethics" class="legend-chip chip-ethics">Ethics</a>
-      <a href="#theme-privacy" class="legend-chip chip-privacy">Privacy</a>
-      <a href="#theme-governance" class="legend-chip chip-governance">Governance</a>
+    </div>
+  </div>
+
+  <!-- GUIDING QUESTIONS BANNER -->
+  <div class="guiding-questions-bar">
+    <div class="gq-inner">
+      <div class="gq-label">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Guiding Questions for All Themes
+      </div>
+      <div class="gq-list">
+        <div class="gq-item"><span class="gq-num">1</span>To what extent do you find these guidelines useful? What is missing?</div>
+        <div class="gq-item"><span class="gq-num">2</span>What are your initial thoughts on how we can make these more actionable?</div>
+        <div class="gq-item"><span class="gq-num">3</span>How do these guidelines relate to your work?</div>
+        <div class="gq-item"><span class="gq-num">4</span>In what ways could these guidelines be challenging to apply practically in your work?</div>
+      </div>
     </div>
   </div>
 
@@ -91,21 +105,24 @@
         </div>
         <div class="theme-meta">
           <h2 class="theme-title">Transparency</h2>
-          <p class="theme-desc">How AI systems communicate their processes and limitations</p>
+          <p class="theme-desc">How AI systems communicate their processes, sources, and limitations</p>
         </div>
         <span class="note-badge" id="badge-transparency">0</span>
       </div>
 
       <div class="prompts-section">
-        <div class="prompts-label">Discussion Prompts</div>
+        <div class="prompts-label">Guiding Questions</div>
         <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">Should AI systems always disclose when a user is interacting with AI, not a human?</div>
+          <div class="prompt-q">To what extent do you find these guidelines useful? What is missing?</div>
         </div>
         <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">What information about an AI model's training data should be publicly accessible?</div>
+          <div class="prompt-q">What are your initial thoughts on how we can make these more actionable?</div>
         </div>
         <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">How do we balance algorithmic transparency with the protection of proprietary systems?</div>
+          <div class="prompt-q">How do these guidelines relate to your work?</div>
+        </div>
+        <div class="prompt-card" tabindex="0">
+          <div class="prompt-q">In what ways could these guidelines be challenging to apply practically in your work?</div>
         </div>
       </div>
 
@@ -117,55 +134,146 @@
       </div>
 
       <div class="add-note-bar">
-        <input class="note-input" type="text" placeholder="Add a sticky note…" data-zone="transparency" maxlength="180" aria-label="Add note to Transparency">
+        <input class="note-input" type="text" placeholder="Add a sticky note…" data-zone="transparency" maxlength="200" aria-label="Add note to Transparency">
         <button class="add-note-btn" data-zone="transparency" aria-label="Post note">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
         </button>
       </div>
     </section>
 
-    <!-- ─────────── THEME 2: BIAS ─────────── -->
-    <section class="theme-column" id="theme-bias" data-theme-id="bias">
-      <div class="column-header theme-bias">
+    <!-- ─────────── THEME 2: DATA PRIVACY ─────────── -->
+    <section class="theme-column" id="theme-dataprivacy" data-theme-id="dataprivacy">
+      <div class="column-header theme-dataprivacy">
         <div class="theme-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </div>
         <div class="theme-meta">
-          <h2 class="theme-title">Bias & Fairness</h2>
-          <p class="theme-desc">Identifying and mitigating discriminatory patterns in AI outputs</p>
+          <h2 class="theme-title">Data Privacy</h2>
+          <p class="theme-desc">Protecting personal and community data in AI-driven systems</p>
         </div>
-        <span class="note-badge" id="badge-bias">0</span>
+        <span class="note-badge" id="badge-dataprivacy">0</span>
       </div>
 
       <div class="prompts-section">
-        <div class="prompts-label">Discussion Prompts</div>
+        <div class="prompts-label">Guiding Questions</div>
         <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">Who is responsible when an AI system produces biased outputs — the developer, deployer, or user?</div>
+          <div class="prompt-q">To what extent do you find these guidelines useful? What is missing?</div>
         </div>
         <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">How should AI guidelines address historical bias embedded in training datasets?</div>
+          <div class="prompt-q">What are your initial thoughts on how we can make these more actionable?</div>
         </div>
         <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">What metrics best capture fairness across different demographic groups, and who defines them?</div>
+          <div class="prompt-q">How do these guidelines relate to your work?</div>
+        </div>
+        <div class="prompt-card" tabindex="0">
+          <div class="prompt-q">In what ways could these guidelines be challenging to apply practically in your work?</div>
         </div>
       </div>
 
-      <div class="sticky-zone" id="zone-bias" data-zone="bias">
-        <div class="zone-empty" id="empty-bias">
+      <div class="sticky-zone" id="zone-dataprivacy" data-zone="dataprivacy">
+        <div class="zone-empty" id="empty-dataprivacy">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><path d="M17 13v6M14 16h6"/></svg>
           <p>Add your first sticky note below</p>
         </div>
       </div>
 
       <div class="add-note-bar">
-        <input class="note-input" type="text" placeholder="Add a sticky note…" data-zone="bias" maxlength="180" aria-label="Add note to Bias">
-        <button class="add-note-btn" data-zone="bias" aria-label="Post note">
+        <input class="note-input" type="text" placeholder="Add a sticky note…" data-zone="dataprivacy" maxlength="200" aria-label="Add note to Data Privacy">
+        <button class="add-note-btn" data-zone="dataprivacy" aria-label="Post note">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
         </button>
       </div>
     </section>
 
-    <!-- ─────────── THEME 3: ETHICS ─────────── -->
+    <!-- ─────────── THEME 3: ACADEMIC INTEGRITY ─────────── -->
+    <section class="theme-column" id="theme-academicintegrity" data-theme-id="academicintegrity">
+      <div class="column-header theme-academicintegrity">
+        <div class="theme-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div class="theme-meta">
+          <h2 class="theme-title">Academic Integrity</h2>
+          <p class="theme-desc">Maintaining honesty, attribution, and scholarly standards when using AI</p>
+        </div>
+        <span class="note-badge" id="badge-academicintegrity">0</span>
+      </div>
+
+      <div class="prompts-section">
+        <div class="prompts-label">Guiding Questions</div>
+        <div class="prompt-card" tabindex="0">
+          <div class="prompt-q">To what extent do you find these guidelines useful? What is missing?</div>
+        </div>
+        <div class="prompt-card" tabindex="0">
+          <div class="prompt-q">What are your initial thoughts on how we can make these more actionable?</div>
+        </div>
+        <div class="prompt-card" tabindex="0">
+          <div class="prompt-q">How do these guidelines relate to your work?</div>
+        </div>
+        <div class="prompt-card" tabindex="0">
+          <div class="prompt-q">In what ways could these guidelines be challenging to apply practically in your work?</div>
+        </div>
+      </div>
+
+      <div class="sticky-zone" id="zone-academicintegrity" data-zone="academicintegrity">
+        <div class="zone-empty" id="empty-academicintegrity">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><path d="M17 13v6M14 16h6"/></svg>
+          <p>Add your first sticky note below</p>
+        </div>
+      </div>
+
+      <div class="add-note-bar">
+        <input class="note-input" type="text" placeholder="Add a sticky note…" data-zone="academicintegrity" maxlength="200" aria-label="Add note to Academic Integrity">
+        <button class="add-note-btn" data-zone="academicintegrity" aria-label="Post note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ─────────── THEME 4: HUMAN VALIDATION ─────────── -->
+    <section class="theme-column" id="theme-humanvalidation" data-theme-id="humanvalidation">
+      <div class="column-header theme-humanvalidation">
+        <div class="theme-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+        </div>
+        <div class="theme-meta">
+          <h2 class="theme-title">Human Validation</h2>
+          <p class="theme-desc">Ensuring humans critically review, verify, and take responsibility for AI outputs</p>
+        </div>
+        <span class="note-badge" id="badge-humanvalidation">0</span>
+      </div>
+
+      <div class="prompts-section">
+        <div class="prompts-label">Guiding Questions</div>
+        <div class="prompt-card" tabindex="0">
+          <div class="prompt-q">To what extent do you find these guidelines useful? What is missing?</div>
+        </div>
+        <div class="prompt-card" tabindex="0">
+          <div class="prompt-q">What are your initial thoughts on how we can make these more actionable?</div>
+        </div>
+        <div class="prompt-card" tabindex="0">
+          <div class="prompt-q">How do these guidelines relate to your work?</div>
+        </div>
+        <div class="prompt-card" tabindex="0">
+          <div class="prompt-q">In what ways could these guidelines be challenging to apply practically in your work?</div>
+        </div>
+      </div>
+
+      <div class="sticky-zone" id="zone-humanvalidation" data-zone="humanvalidation">
+        <div class="zone-empty" id="empty-humanvalidation">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><path d="M17 13v6M14 16h6"/></svg>
+          <p>Add your first sticky note below</p>
+        </div>
+      </div>
+
+      <div class="add-note-bar">
+        <input class="note-input" type="text" placeholder="Add a sticky note…" data-zone="humanvalidation" maxlength="200" aria-label="Add note to Human Validation">
+        <button class="add-note-btn" data-zone="humanvalidation" aria-label="Post note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ─────────── THEME 5: ETHICS ─────────── -->
     <section class="theme-column" id="theme-ethics" data-theme-id="ethics">
       <div class="column-header theme-ethics">
         <div class="theme-icon">
@@ -173,21 +281,24 @@
         </div>
         <div class="theme-meta">
           <h2 class="theme-title">Ethics</h2>
-          <p class="theme-desc">Moral frameworks guiding responsible AI development and use</p>
+          <p class="theme-desc">Moral frameworks guiding responsible and equitable AI use</p>
         </div>
         <span class="note-badge" id="badge-ethics">0</span>
       </div>
 
       <div class="prompts-section">
-        <div class="prompts-label">Discussion Prompts</div>
+        <div class="prompts-label">Guiding Questions</div>
         <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">What ethical frameworks (utilitarian, rights-based, indigenous) are most appropriate for AI governance?</div>
+          <div class="prompt-q">To what extent do you find these guidelines useful? What is missing?</div>
         </div>
         <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">How should AI guidelines handle high-stakes decisions in healthcare, justice, or environmental management?</div>
+          <div class="prompt-q">What are your initial thoughts on how we can make these more actionable?</div>
         </div>
         <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">Is there an ethical obligation to preserve human oversight even as AI systems become more capable?</div>
+          <div class="prompt-q">How do these guidelines relate to your work?</div>
+        </div>
+        <div class="prompt-card" tabindex="0">
+          <div class="prompt-q">In what ways could these guidelines be challenging to apply practically in your work?</div>
         </div>
       </div>
 
@@ -199,90 +310,8 @@
       </div>
 
       <div class="add-note-bar">
-        <input class="note-input" type="text" placeholder="Add a sticky note…" data-zone="ethics" maxlength="180" aria-label="Add note to Ethics">
+        <input class="note-input" type="text" placeholder="Add a sticky note…" data-zone="ethics" maxlength="200" aria-label="Add note to Ethics">
         <button class="add-note-btn" data-zone="ethics" aria-label="Post note">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-      </div>
-    </section>
-
-    <!-- ─────────── THEME 4: PRIVACY ─────────── -->
-    <section class="theme-column" id="theme-privacy" data-theme-id="privacy">
-      <div class="column-header theme-privacy">
-        <div class="theme-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        </div>
-        <div class="theme-meta">
-          <h2 class="theme-title">Privacy</h2>
-          <p class="theme-desc">Protecting personal and community data in AI-driven systems</p>
-        </div>
-        <span class="note-badge" id="badge-privacy">0</span>
-      </div>
-
-      <div class="prompts-section">
-        <div class="prompts-label">Discussion Prompts</div>
-        <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">How should AI guidelines address the collection of sensitive community or tribal data?</div>
-        </div>
-        <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">What consent mechanisms are needed before AI systems can use personal or collective data for training?</div>
-        </div>
-        <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">Should individuals have a "right to be forgotten" from AI training datasets, and how would this work in practice?</div>
-        </div>
-      </div>
-
-      <div class="sticky-zone" id="zone-privacy" data-zone="privacy">
-        <div class="zone-empty" id="empty-privacy">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><path d="M17 13v6M14 16h6"/></svg>
-          <p>Add your first sticky note below</p>
-        </div>
-      </div>
-
-      <div class="add-note-bar">
-        <input class="note-input" type="text" placeholder="Add a sticky note…" data-zone="privacy" maxlength="180" aria-label="Add note to Privacy">
-        <button class="add-note-btn" data-zone="privacy" aria-label="Post note">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-      </div>
-    </section>
-
-    <!-- ─────────── THEME 5: GOVERNANCE ─────────── -->
-    <section class="theme-column" id="theme-governance" data-theme-id="governance">
-      <div class="column-header theme-governance">
-        <div class="theme-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div class="theme-meta">
-          <h2 class="theme-title">Governance</h2>
-          <p class="theme-desc">Structures and accountability for AI policy and oversight</p>
-        </div>
-        <span class="note-badge" id="badge-governance">0</span>
-      </div>
-
-      <div class="prompts-section">
-        <div class="prompts-label">Discussion Prompts</div>
-        <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">Who should have a seat at the table when AI guidelines are drafted — technologists, policymakers, communities?</div>
-        </div>
-        <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">How should Indigenous and tribal nations exercise data sovereignty within AI governance frameworks?</div>
-        </div>
-        <div class="prompt-card" tabindex="0">
-          <div class="prompt-q">What enforcement mechanisms would make AI guidelines meaningfully binding, not just aspirational?</div>
-        </div>
-      </div>
-
-      <div class="sticky-zone" id="zone-governance" data-zone="governance">
-        <div class="zone-empty" id="empty-governance">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><path d="M17 13v6M14 16h6"/></svg>
-          <p>Add your first sticky note below</p>
-        </div>
-      </div>
-
-      <div class="add-note-bar">
-        <input class="note-input" type="text" placeholder="Add a sticky note…" data-zone="governance" maxlength="180" aria-label="Add note to Governance">
-        <button class="add-note-btn" data-zone="governance" aria-label="Post note">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
         </button>
       </div>
