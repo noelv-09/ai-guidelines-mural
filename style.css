@@ -1318,6 +1318,77 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 }
 
 
+
+/* ─── GUIDELINES ACCORDION ─── */
+.gp-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.gp-accordion-item {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.gp-accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: white;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  transition: filter var(--tr);
+}
+
+.gp-accordion-trigger:hover { filter: brightness(1.08); }
+
+.gp-chevron {
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gp-accordion-trigger[aria-expanded="true"] .gp-chevron {
+  transform: rotate(180deg);
+}
+
+.gp-accordion-body {
+  border-top: 1px solid var(--color-divider);
+  background: var(--color-surface-2);
+}
+
+.gp-accordion-body[hidden] { display: none; }
+
+.gp-accordion-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.gp-theme-summary {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+  margin: 0;
+  background: var(--color-surface);
+}
+
+/* Reuse trigger colors from existing gp-theme-label backgrounds */
+.theme-block-transparency  { background: #d97706; }
+.theme-block-dataprivacy   { background: #16a34a; }
+.theme-block-academicintegrity { background: #ea580c; }
+.theme-block-humanvalidation   { background: #0284c7; }
+.theme-block-ethics            { background: #7c3aed; }
+
 /* ─── KEY QUESTIONS BLOCK ─── */
 .gp-key-questions {
   padding: var(--space-3) var(--space-4);

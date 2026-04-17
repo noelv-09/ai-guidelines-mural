@@ -372,6 +372,32 @@ function bindInputs() {
   });
 }
 
+
+// ── Guidelines accordion ──────────────────────
+function initAccordion() {
+  document.querySelectorAll('.gp-accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const body = trigger.nextElementSibling;
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Close all others
+      document.querySelectorAll('.gp-accordion-trigger').forEach(t => {
+        t.setAttribute('aria-expanded', 'false');
+        const b = t.nextElementSibling;
+        if (b) b.hidden = true;
+      });
+
+      // Toggle clicked one
+      if (!isOpen) {
+        trigger.setAttribute('aria-expanded', 'true');
+        body.hidden = false;
+        // Smooth scroll into view
+        setTimeout(() => trigger.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+      }
+    });
+  });
+}
+
 // ── Guidelines viewer ─────────────────────────
 function initGuidelinesViewer() {
   const btn = document.getElementById('view-guidelines-btn');
@@ -445,5 +471,6 @@ document.addEventListener('DOMContentLoaded', () => {
   bindExport();
   initConnectionStatus();
   initGuidelinesViewer();
+  initAccordion();
   listenToNotes();
 });
