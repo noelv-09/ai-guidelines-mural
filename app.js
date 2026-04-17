@@ -110,7 +110,7 @@ function createNoteEl(note) {
     <div class="note-header">
       <span class="note-anon-label">
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        Anonymous
+        ${isMine ? 'You <span class="note-mine-tag">you</span>' : 'Anonymous'}
       </span>
       <span class="note-timestamp">${escapeHtml(note.time)}${note.edited ? ' · edited' : ''}</span>
     </div>
